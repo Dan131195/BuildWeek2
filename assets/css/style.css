@@ -1,0 +1,309 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'circular';
+  background-color: black;
+  color: white;
+}
+
+html,
+body,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.hover p:hover,
+.hover a:hover {
+  font-weight: bolder;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.hover i:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+#dropdownBtn {
+  background-color: #00000022 !important;
+}
+
+#dropdownBtn img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.dropdown-menu li a:hover {
+  color: #000000 !important;
+}
+
+@media screen and (max-width: 991px) {
+  .navigation {
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    height: 85px;
+    z-index: 1;
+  }
+
+  nav {
+    background-color: #000000;
+    background: linear-gradient(#0000006e, #000000);
+    margin: 0;
+    height: 85px; /* */
+  }
+
+  #player {
+    height: 60px;
+    position: fixed;
+    bottom: 85px;
+  }
+
+  #playerBar {
+    background-color: #2c2c2c !important;
+    height: 60px;
+  }
+
+  .bi-house-door-fill,
+  .bi-search,
+  .bi-collection {
+    font-size: 1.3em;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #playerNav {
+    height: 80px;
+    background-color: #000000 !important;
+    padding: 0;
+    border-radius: 0 !important;
+  }
+
+  /* Left aside (navigation) */
+  aside.navigation {
+    left: 0;
+    z-index: 10;
+  }
+
+  /* Right aside (friends activity) */
+  aside:not(.navigation) {
+    right: 0;
+  }
+
+  main {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 100px;
+  }
+
+  #randomSong {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(106, 106, 106, 0.7) 50%,
+      rgba(255, 255, 255, 0.9) 100%
+    );
+    background-size: 400% 400%;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  /* Ensure player stays at the bottom */
+  #player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+  }
+
+  /* Scrollbar styling for better aesthetics */
+  main::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  main::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  main::-webkit-scrollbar-thumb {
+    background: #404040;
+    border-radius: 5px;
+  }
+
+  main::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  #albumCover img {
+    border-radius: 10px !important;
+  }
+}
+
+main {
+  background-color: #121212;
+}
+
+.cardDiv:hover {
+  /* transform: scale(1.05); */
+  background-color: #1d1c1c;
+  cursor: pointer;
+}
+
+.imgsDiv {
+  min-width: 82px;
+  max-width: 100px;
+
+  min-height: 82px;
+  max-height: 100px;
+}
+
+#albumCover img {
+  max-width: 46px;
+}
+
+#track {
+  overflow: hidden;
+}
+
+#title {
+  display: inline-block;
+  white-space: nowrap;
+  position: relative;
+  animation: scroll-text 10s linear 1.5;
+}
+
+@keyframes scroll-text {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+#playPause:hover,
+.bi-pc-display:hover,
+.bi-heart-fill:hover {
+  background-color: #2c2c2c;
+}
+
+/*ALBUM*/
+
+.infoAlbum {
+  font-size: 0.8em; /**/
+}
+
+#albumCover img,
+#albumTitle img {
+  /* */
+  max-width: 46px;
+}
+
+@media screen and (min-width: 768px) {
+  #albumImg img {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #albumImg img {
+    min-width: 100%;
+  }
+  #albumTitle h3 { /**/
+    font-size: 3em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #albumTitle h3 { /**/
+    font-size: 3.6em;
+  }
+}
+
+#asideIcons i:hover {
+  cursor: pointer;
+  color: #8a8a8a;
+}
+
+.infos {
+  font-size: 0.5em;
+  padding: 0;
+}
+
+.infos h6 {
+  margin: 0;
+}
+/*SEARCH*/
+
+.searchImg {
+  transform: rotate(20deg);
+  max-width: 40%;
+  border-radius: 10px;
+  margin-right: -20px;
+}
+
+.searchDiv {
+  margin-bottom: 140px;
+}
+
+/*ARTIST*/
+
+#bgArtistImg {
+  height: 40vh;
+}
+
+#bgArtistImg img { 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}  
+
+#chevron {
+  top: 16px;
+  position: absolute;
+  left: 16px;
+  z-index: 1;
+}
+
+.artistInfo {
+  margin-top: 200px;
+  width: 100%;
+  position: absolute; 
+  bottom: 16px; 
+  left: 16px;
+}
+
+@media screen and (min-width: 992px) {
+  .artistInfo h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .artistInfo h1 {
+    font-size: 54px;
+  }
+}
+
+.imgArtist {
+  max-width: 56px;
+}
+
+#heartArtist {
+  right: -5px;
+  bottom: -10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
