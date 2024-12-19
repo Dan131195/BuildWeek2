@@ -53,11 +53,11 @@ function fetchHomePage() {
 fetchHomePage();
 
 const classConfig = {
-  containerClass: 'p-1',
-  cardClass: 'card bg-dark text-white',
+  containerClass: 'p-1 mt-3',
+  cardClass: 'card bg-dark text-white p-2',
   imageClass: 'card-img-top',
-  bodyClass: 'card-body',
-  titleClass: 'card-title',
+  bodyClass: 'card-body p-0 pt-3',
+  titleClass: 'card-title ',
   textClass: 'card-text',
   footerClass: 'card-footer',
   buttonClass: '',
@@ -101,7 +101,7 @@ function fetchAndDisplayRandom() {
         cardBody.className = classConfig.bodyClass;
 
         // Aggiungi il titolo
-        const titleElement = document.createElement('h5');
+        const titleElement = document.createElement('h6');
         titleElement.className = classConfig.titleClass;
         titleElement.textContent = album.title;
         cardBody.appendChild(titleElement);
@@ -110,18 +110,18 @@ function fetchAndDisplayRandom() {
         cardDiv.appendChild(cardBody);
 
         // Crea il footer della card
-        const cardFooter = document.createElement('div');
-        cardFooter.className = classConfig.footerClass;
+        // const cardFooter = document.createElement('div');
+        // cardFooter.className = classConfig.footerClass;
 
-        // Aggiungi un pulsante al footer
-        const buttonElement = document.createElement('a');
-        buttonElement.className = classConfig.buttonClass;
-        buttonElement.href = album.link; // Link all'album su Deezer
-        buttonElement.textContent = 'Ascolta ora';
-        cardFooter.appendChild(buttonElement);
+        // // Aggiungi un pulsante al footer
+        // const buttonElement = document.createElement('a');
+        // buttonElement.className = classConfig.buttonClass;
+        // buttonElement.href = album.link; // Link all'album su Deezer
+        // buttonElement.textContent = 'Ascolta ora';
+        // cardFooter.appendChild(buttonElement);
 
-        // Aggiungi il footer alla card
-        cardDiv.appendChild(cardFooter);
+        // // Aggiungi il footer alla card
+        // cardDiv.appendChild(cardFooter);
 
         // Aggiungi la card al contenitore
         containerDiv.appendChild(cardDiv);

@@ -304,7 +304,7 @@ function updateSavedPlaylistUI() {
     // Testo del titolo del brano
     const trackInfo = document.createElement('span');
     trackInfo.textContent = `${track.title} - ${track.artist.name}`;
-    trackInfo.classList.add('trackInfo', 'm-auto');
+    trackInfo.classList.add('trackInfo'); // MODIFICA ------------------------------------------
 
     // Icona cuore accanto al titolo del brano
     const heart = document.createElement('i');

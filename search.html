@@ -52,25 +52,26 @@
           <div class="container d-none d-lg-block mt-2 hover">
             <p class="mb-2">
               <i
-                class="bi bi-plus bg-secondary border-0 rounded-1 text-white fs-4"
+                class="bi bi-plus bg-secondary border-0 rounded-1 text-white fs-5 me-2"
               ></i>
               <span>Crea Playlist</span>
             </p>
             <p class="mb-2">
               <i
-                class="bi bi-heart-fill bg-secondary border-0 rounded-1 text-white p-1 fs-6"
+                class="bi bi-heart-fill border-0 rounded-1 text-white p-1 me-2 favoritesSong"
               ></i>
               Brani che ti piacciono
             </p>
             <p class="mb-2">
               <i
-                class="bi bi-bookmark-fill bg-secondary border-0 rounded-1 text-white p-1 fs-6"
+                class="bi bi-bookmark-fill border-0 rounded-1 p-1 me-2"
               ></i>
               I tuoi episodi
             </p>
           </div>
         </nav>
         <div id="savedPlaylistContainer">
+          <hr class="text-white m-0 mb-2 border-3">
           <p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +88,7 @@
             </svg>
             Brani che ti Piacciono
           </p>
-          <ul id="savedPlaylistItems"></ul>
+          <ul id="savedPlaylistItems" class="mt-2 p-0"></ul>
         </div>
       </aside>
       <main class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
@@ -96,7 +97,7 @@
           <i class="bi bi-search text-white"></i>
           <input
             type="text"
-            class="bg-dark border-0 text-white"
+            class="bg-dark border-0 text-white ps-3 w-75"
             placeholder="Cosa vuoi ascoltare?"
           />
         </div>
@@ -106,7 +107,7 @@
           <div class="row row-cols-2 row-cols-lg-3">
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Podcast</h4>
                 <img
@@ -117,7 +118,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Viva Latino</h4>
                 <img
@@ -128,7 +129,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>R&B</h4>
                 <img
@@ -139,7 +140,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Rock</h4>
                 <img
@@ -150,7 +151,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Travel</h4>
                 <img
@@ -161,7 +162,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Summer</h4>
                 <img
@@ -172,7 +173,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Top Songs</h4>
                 <img
@@ -183,7 +184,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Soul</h4>
                 <img
@@ -194,7 +195,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Party</h4>
                 <img
@@ -205,7 +206,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Afro</h4>
                 <img
@@ -216,7 +217,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Classic</h4>
                 <img
@@ -227,7 +228,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>League of Legends</h4>
                 <img
@@ -238,7 +239,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Metal</h4>
                 <img
@@ -249,7 +250,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Pop</h4>
                 <img
@@ -260,7 +261,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Blues</h4>
                 <img
@@ -271,7 +272,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Country</h4>
                 <img
@@ -282,7 +283,7 @@
             </div>
             <div class="p-2">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Kids</h4>
                 <img
@@ -293,7 +294,7 @@
             </div>
             <div class="p-2 searchDiv">
               <div
-                class="bg-success rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
+                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
               >
                 <h4>Gaming</h4>
                 <img
