@@ -3,6 +3,7 @@ const ALBUM_URL =
 
 let playlist = []; // Array delle tracce
 let currentTrackIndex = 0; // Indice della traccia corrente
+let idBase = 3068802251;
 const audioElement = new Audio(); // Elemento audio
 
 // Selezione degli elementi HTML
@@ -18,12 +19,12 @@ const trackArtistLg = document.querySelector('#artistLg'); // Artista
 const albumCover = document.querySelector('#albumCover img'); // Copertina album
 document.addEventListener('load', init());
 function init() {
+  updateHeartIcon();
   loadPlaylistFromLocalStorage(); // Carica i brani salvati
-  fetchSongs('664052151'); // Caricamento iniziale delle tracce
+  fetchSongs('664052151', idBase); // Caricamento iniziale delle tracce
 }
-
 // Funzione per recuperare le tracce dall'API
-async function fetchSongs(albumId) {
+async function fetchSongs(albumId, id) {
   try {
     const response = await fetch(
       `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`
@@ -33,7 +34,14 @@ async function fetchSongs(albumId) {
     playlist = data.tracks.data; // Salva le tracce
     console.log(playlist);
 
-    loadTrack(currentTrackIndex);
+    if (id) {
+      currentTrackIndex = playlist.findIndex((track) => track.id === id);
+      console.log(currentTrackIndex);
+
+      loadTrack(currentTrackIndex);
+    } else {
+      loadTrack(currentTrackIndex);
+    }
   } catch (error) {
     console.error('Errore:', error);
   }
@@ -45,7 +53,7 @@ function loadTrack(index) {
   if (track) {
     audioElement.src = track.preview; // Imposta la sorgente audio
     trackTitle.innerText = `${track.title} - ${track.artist.name}`;
-    trackTitleLg.textContent = track.title; // Aggiorna il titolo
+    trackTitleLg.innerHTML = track.title; // Aggiorna il titolo
     trackArtistLg.textContent = track.artist.name; // Aggiorna l'artista
     albumCover.src = track.album.cover_medium; // Aggiorna la copertina
   }
@@ -304,7 +312,7 @@ function updateSavedPlaylistUI() {
     // Testo del titolo del brano
     const trackInfo = document.createElement('span');
     trackInfo.textContent = `${track.title} - ${track.artist.name}`;
-    trackInfo.classList.add('trackInfo'); // MODIFICA ------------------------------------------
+    trackInfo.classList.add('trackInfo');
 
     // Icona cuore accanto al titolo del brano
     const heart = document.createElement('i');
