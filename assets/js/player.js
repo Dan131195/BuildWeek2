@@ -1,5 +1,5 @@
 const ALBUM_URL =
-  'https://striveschool-api.herokuapp.com/api/deezer/album/75621062';
+  'https://striveschool-api.herokuapp.com/api/deezer/album/664052151';
 
 let playlist = []; // Array delle tracce
 let currentTrackIndex = 0; // Indice della traccia corrente
@@ -16,15 +16,23 @@ const trackTitle = document.querySelector('#title'); // Titolo
 const trackTitleLg = document.querySelector('#titleLg'); // Titolo
 const trackArtistLg = document.querySelector('#artistLg'); // Artista
 const albumCover = document.querySelector('#albumCover img'); // Copertina album
-const heartIcon = document.getElementById('filledHeart');
+document.addEventListener('load', init());
+function init() {
+  loadPlaylistFromLocalStorage(); // Carica i brani salvati
+  fetchSongs('664052151'); // Caricamento iniziale delle tracce
+}
 
 // Funzione per recuperare le tracce dall'API
-async function fetchSongs() {
+async function fetchSongs(albumId) {
   try {
-    const response = await fetch(ALBUM_URL);
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`
+    );
     if (!response.ok) throw new Error('Errore nel recupero delle tracce');
     const data = await response.json();
     playlist = data.tracks.data; // Salva le tracce
+    console.log(playlist);
+
     loadTrack(currentTrackIndex);
   } catch (error) {
     console.error('Errore:', error);
@@ -50,7 +58,6 @@ function updatePlayButton(isPlaying) {
     playPauseButton.classList.add('bi-pause-fill');
     playPauseButton2.classList.remove('bi-play-circle-fill');
     playPauseButton2.classList.remove('bi-play-fill');
-
     playPauseButton2.classList.add('bi-pause-fill');
   } else {
     playPauseButton.classList.remove('bi-pause-fill');
@@ -90,12 +97,35 @@ function prevTrack() {
 function updateHeartIcon() {
   const currentTrack = playlist[currentTrackIndex];
 
-  if (savedPlaylist.some((track) => track.id === currentTrack.id)) {
-    heartIcon.classList.add('text-success'); // Cuore verde
-    heartIcon.classList.remove('text-white');
-  } else {
-    heartIcon.classList.remove('text-success');
-    heartIcon.classList.add('text-white');
+  // Aggiorna il cuore del player
+  heartIcon.forEach((element) => {
+    if (savedPlaylist.some((track) => track.id === currentTrack.id)) {
+      element.classList.remove('bi-heart');
+      element.classList.add('bi-heart-fill');
+      element.classList.add('text-success'); // Cuore verde dopo il click
+      element.classList.remove('text-white');
+    } else {
+      element.classList.add('bi-heart');
+      element.classList.remove('bi-heart-fill');
+      element.classList.remove('text-success');
+      element.classList.add('text-white'); // Torna bianco se rimosso
+    }
+  });
+
+  // Aggiorna i cuori nella lista salvata
+  const savedPlaylistContainer = document.getElementById('savedPlaylistItems');
+  if (savedPlaylistContainer) {
+    savedPlaylistContainer
+      .querySelectorAll('.bi-heart-fill')
+      .forEach((heart, index) => {
+        if (savedPlaylist[index]) {
+          heart.classList.add('text-success'); // Verde se presente
+          heart.classList.remove('text-white');
+        } else {
+          heart.classList.remove('text-success'); // Bianco se assente
+          heart.classList.add('text-white');
+        }
+      });
   }
 }
 
@@ -139,9 +169,6 @@ volumeControl.addEventListener('input', handleVolumeChange);
 audioElement.addEventListener('ended', () => {
   nextTrackHandler();
 });
-
-// Caricamento iniziale delle tracce
-fetchSongs();
 
 // Creazione della barra del tempo
 const progressBar = document.createElement('input');
@@ -246,3 +273,59 @@ repeatButton.addEventListener('click', () => {
 // Rimuovi l'evento esistente e aggiorna Next
 nextButton.removeEventListener('click', nextTrack); // Rimuovi il vecchio evento
 nextButton.addEventListener('click', nextTrackHandler); // Aggiungi il nuovo evento
+
+function savePlaylistToLocalStorage() {
+  localStorage.setItem('savedPlaylist', JSON.stringify(savedPlaylist));
+}
+
+function loadPlaylistFromLocalStorage() {
+  const savedData = localStorage.getItem('savedPlaylist');
+  if (savedData) {
+    try {
+      savedPlaylist = JSON.parse(savedData); // Prova a fare il parsing
+    } catch (error) {
+      console.error('Errore nel parsing di savedPlaylist:', error);
+      savedPlaylist = []; // Ripristina se fallisce
+    }
+    updateSavedPlaylistUI(); // Aggiorna la UI
+  } else {
+    savedPlaylist = []; // Se non ci sono dati
+  }
+}
+
+function updateSavedPlaylistUI() {
+  const savedPlaylistContainer = document.getElementById('savedPlaylistItems');
+  savedPlaylistContainer.innerHTML = ''; // Pulisce la lista
+
+  savedPlaylist.forEach((track, index) => {
+    const li = document.createElement('li');
+    li.className = 'text-white mb-2 d-flex align-items-center';
+
+    // Testo del titolo del brano
+    const trackInfo = document.createElement('span');
+    trackInfo.textContent = `${track.title} - ${track.artist.name}`;
+    trackInfo.classList.add('trackInfo', 'm-auto');
+
+    // Icona cuore accanto al titolo del brano
+    const heart = document.createElement('i');
+    heart.className = 'bi bi-heart-fill ms-3 text-success';
+    heart.addEventListener('click', () => {
+      removeTrackFromSavedPlaylist(index); // Rimuove brano dalla lista
+    });
+
+    // Aggiungi l'icona e il testo all'elemento lista
+    li.appendChild(trackInfo);
+    li.appendChild(heart);
+
+    // Aggiungi il brano alla lista
+    savedPlaylistContainer.appendChild(li);
+  });
+}
+
+function removeTrackFromSavedPlaylist(index) {
+  const removedTrack = savedPlaylist.splice(index, 1)[0]; // Rimuove il brano
+
+  savePlaylistToLocalStorage(); // Salva l'array aggiornato
+  updateSavedPlaylistUI(); // Aggiorna la lista
+  updateHeartIcon(); // Aggiorna il cuore del player
+}

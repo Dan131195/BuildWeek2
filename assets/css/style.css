@@ -55,7 +55,7 @@ p {
     background-color: #000000;
     background: linear-gradient(#0000006e, #000000);
     margin: 0;
-    height: 85px; /* */
+    height: 70px;
   }
 
   #player {
@@ -77,6 +77,11 @@ p {
 }
 
 @media screen and (min-width: 992px) {
+  #mainContainer {
+    height: 100vh;
+    overflow: hidden;
+  }
+
   #playerNav {
     height: 80px;
     background-color: #000000 !important;
@@ -95,6 +100,10 @@ p {
     right: 0;
   }
 
+  .trackInfo {
+    font-size: 0.8em;
+  }
+
   main {
     height: 100vh;
     overflow-y: auto;
@@ -104,20 +113,32 @@ p {
 
   #randomSong {
     background: linear-gradient(
-      135deg,
+      to top right,
       rgba(0, 0, 0, 0.9) 0%,
       rgba(106, 106, 106, 0.7) 50%,
       rgba(255, 255, 255, 0.9) 100%
     );
     background-size: 400% 400%;
     border-radius: 10px;
+    animation: gradientFlow 15s ease infinite;
     padding: 15px;
     margin: 15px 0 !important;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
   }
 
-  /* Ensure player stays at the bottom */
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
   #player {
     position: fixed;
     bottom: 0;
@@ -126,7 +147,6 @@ p {
     z-index: 20;
   }
 
-  /* Scrollbar styling for better aesthetics */
   main::-webkit-scrollbar {
     width: 10px;
   }
@@ -147,6 +167,25 @@ p {
   #albumCover img {
     border-radius: 10px !important;
   }
+
+  #albumImg img {
+    min-width: 100%;
+  }
+  #albumTitle h3 {
+    font-size: 3em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #albumTitle h3 {
+    font-size: 3.6em;
+  }
+}
+#BgArtistImg {
+  background-image: url('https://cdn-images.dzcdn.net/images/artist/71eeb9e2eeb375df35a3c0654a5a01ab/1000x1000-000000-80-0-0.jpg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 main {
@@ -154,7 +193,6 @@ main {
 }
 
 .cardDiv:hover {
-  /* transform: scale(1.05); */
   background-color: #1d1c1c;
   cursor: pointer;
 }
@@ -198,14 +236,8 @@ main {
 }
 
 /*ALBUM*/
-
-.infoAlbum {
-  font-size: 0.8em; /**/
-}
-
 #albumCover img,
 #albumTitle img {
-  /* */
   max-width: 46px;
 }
 
@@ -219,15 +251,10 @@ main {
   #albumImg img {
     min-width: 100%;
   }
-  #albumTitle h3 { /**/
-    font-size: 3em;
-  }
 }
 
-@media screen and (min-width: 1200px) {
-  #albumTitle h3 { /**/
-    font-size: 3.6em;
-  }
+main {
+  overflow: scroll auto;
 }
 
 #asideIcons i:hover {
@@ -243,6 +270,7 @@ main {
 .infos h6 {
   margin: 0;
 }
+
 /*SEARCH*/
 
 .searchImg {
@@ -257,17 +285,16 @@ main {
 }
 
 /*ARTIST*/
-
 #bgArtistImg {
   height: 40vh;
 }
 
-#bgArtistImg img { 
+#bgArtistImg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: brightness(50%);
-}  
+}
 
 #chevron {
   top: 16px;
@@ -279,8 +306,8 @@ main {
 .artistInfo {
   margin-top: 200px;
   width: 100%;
-  position: absolute; 
-  bottom: 16px; 
+  position: absolute;
+  bottom: 16px;
   left: 16px;
 }
 
@@ -306,4 +333,10 @@ main {
   border-radius: 50%;
   width: 30px;
   height: 30px;
+}
+
+input[type='text'] {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
