@@ -1,6 +1,7 @@
 const ALBUM_URL =
   'https://striveschool-api.herokuapp.com/api/deezer/album/664052151';
 
+let albumTracks = []; // Array globale per contenere le tracce dell'album
 let playlist = [];
 let currentTrackIndex = 0;
 let idBase = 3068802251;
@@ -32,6 +33,7 @@ async function fetchSongs(albumId, id) {
     if (!response.ok) throw new Error('Errore nel recupero delle tracce');
     const data = await response.json();
     playlist = data.tracks.data;
+    albumTracks = playlist;
     console.log(playlist);
 
     if (id) {
@@ -286,10 +288,29 @@ function updateSavedPlaylistUI() {
 
   savedPlaylist.forEach((track, index) => {
     const li = document.createElement('li');
-    li.className = 'text-white mb-2 d-flex align-items-center';
+    li.style.listStyleType = 'none';
+    li.className =
+      'text-white mb-2 d-flex align-items-center justify-content-between';
 
     const trackInfo = document.createElement('span');
-    trackInfo.textContent = `${track.title} - ${track.artist.name}`;
+    trackInfo.style.listStyleType = 'none';
+    trackInfo.textContent = `• ${track.title} - ${track.artist.name}`;
+    trackInfo.addEventListener('click', () => {
+      const trackIndex = playlist.findIndex(
+        (track) => track.id === savedPlaylist.id
+      );
+      if (trackIndex === -1) {
+        playlist.push(track);
+        currentTrackIndex = playlist.length - 1;
+      } else {
+        currentTrackIndex = trackIndex;
+      }
+
+      loadTrack(currentTrackIndex);
+      audioElement.play();
+      updatePlayButton(true);
+      updateHeartIcon();
+    });
     trackInfo.classList.add('trackInfo');
 
     const heart = document.createElement('i');

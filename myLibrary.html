@@ -1,0 +1,977 @@
+:AAAA:
+Daniele Franceschini
+daniele.1395
+Inattivo
+Vittorio Turiaci — 18/12/2024 14:13
+Che easter egg
+Daniele Franceschini — 18/12/2024 15:22
+artist
+/ARTIST/
+
+#bgArtistImg {
+  height: 40vh;
+}
+
+#bgArtistImg img { 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+#chevron {
+  top: 16px;
+  position: absolute;
+  left: 16px;
+  z-index: 1;
+}
+
+.artistInfo {
+  margin-top: 200px;
+  width: 100%;
+  position: absolute; 
+  bottom: 16px; 
+  left: 16px;
+}
+
+@media screen and (min-width: 992px) {
+  .artistInfo h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .artistInfo h1 {
+    font-size: 54px;
+  }
+}
+
+.imgArtist {
+  max-width: 56px;
+}
+
+#heartArtist {
+  right: -5px;
+  bottom: -10px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+Walter Antonelli — 18/12/2024 15:26
+fetch(endpoint)
+    .then(response => response.json())
+    .then(data => {
+Daniele Franceschini — 18/12/2024 15:28
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+Mostra
+message.txt
+13 KB
+Walter Antonelli — 18/12/2024 15:39
+data.tracks.data
+Vittorio Turiaci — 18/12/2024 15:50
+https://striveschool-api.herokuapp.com/api/deezer/artist/92/albums
+const endpoint = https://striveschool-api.herokuapp.com/api/deezer/artist/${query}/albums;
+Walter Antonelli — 18/12/2024 15:52
+fetch(endpoint)
+    .then(response => response.json())
+    .then(data => {
+    const artists = data.data;
+    console.log(data);
+    //const artists = data;
+    artists.forEach(item => {
+Vittorio Turiaci — 18/12/2024 17:05
+const newTErgicristalli = tergicristalli.push()
+Giuseppe Pomo — 18/12/2024 17:10
+input[type="text"] {
+  border: none;
+  outline: none;
+  background-color: transparent; 
+}
+Vittorio Turiaci — Ieri alle 09:29
+#E13300
+#1E3264
+#E8115C
+#158A08
+#BC5800
+#8C67AC
+Giuseppe Pomo — Ieri alle 10:13
+Tipo di allegato: archive
+BuildWeek2-Team6-Branch-day4.zip
+3.34 MB
+Vittorio Turiaci — Ieri alle 10:38
+<i class="bi bi-arrows-angle-contract"></i>
+Giuseppe Pomo — Ieri alle 10:38
+const searchApiUrl =
+  'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
+
+// Elementi della pagina
+const searchInput = document.querySelector('input[type="text"]');
+const searchResultsContainer = document.getElementById('searchResults'); // Contenitore per i risultati
+Mostra
+message.txt
+5 KB
+Vittorio Turiaci — Ieri alle 10:53
+<i class="bi bi-arrows-angle-expand"></i>
+Walter Antonelli — Ieri alle 11:09
+/-------------------------SCIANTAL------------------------------/
+
+/* Questa funzione serve a chiudere la Aside dopo il wrapper centrale 
+il wrapper centraler si allarga occupando lo spazio della aside 
+Codice da controllare */
+let stateCollapse = false;
+let expandeCollapse = document.getElementById("expandeCollapse");
+
+function closeAside() {
+    stateCollapse = !stateCollapse;
+    expandeCollapse.classList.add("ms-1");
+    if(stateCollapse === true) {
+        document.getElementById("wrapperCentral").classList.remove("d-lg-block");
+        document.getElementById("wrapperCentral").classList.remove("col-lg-7");
+        document.getElementById("wrapperCentral").classList.add("col-lg-9");
+        expandeCollapse.classList.remove("bi-arrows-angle-contract");
+        expandeCollapse.classList.add("bi-arrows-angle-expand");
+    }
+    else {
+        document.getElementById("asideIcons").classList.add("d-lg-block");
+        document.getElementById("wrapperCentral").classList.add("col-lg-7");
+        document.getElementById("wrapperCentral").classList.remove("col-lg-9");
+        expandeCollapse.classList.remove("bi-arrows-angle-expand");
+        expandeCollapse.classList.add("bi-arrows-angle-contract");
+    }
+
+}
+
+document.getElementById("closeBtn").addEventListener("click",function(e) {
+ e.preventDefault();
+ closeAside();
+});
+
+
+document.getElementById("expandeCollapse").addEventListener("click", function() {
+    closeAside();
+});
+closeAside.js
+<i id="expandeCollapse" class="bi bi-arrows-angle-contract ms-1"></i>
+<i id="closeBtn" class="bi bi-x-lg mx-2 fs-5"></i>
+<main id="wrapperCentral" class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
+Vittorio Turiaci — Ieri alle 12:22
+https://github.com/Anacronistico00/BuildWeek2-Team6
+GitHub
+GitHub - Anacronistico00/BuildWeek2-Team6
+Contribute to Anacronistico00/BuildWeek2-Team6 development by creating an account on GitHub.
+GitHub - Anacronistico00/BuildWeek2-Team6
+RacheleBarberis — Ieri alle 14:21
+.card-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.card {
+  height: 300px;
+}
+function getRandomColor() {
+  const colors = [
+    "#E13300",
+    "#1E3264",
+    "#E8115C",
+    "#158A08",
+    "#BC5800",
+    "#8C67AC",
+    "#777777",
+    "#503750",
+    "#0D73EC",
+    "#8400E7",
+    "#006450",
+  ];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return colors[randomIndex];
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".searchCard");
+
+  cards.forEach((card) => {
+    const randomColor = getRandomColor();
+    card.style.backgroundColor = randomColor;
+  });
+});
+#savedPlaylistContainer {
+  padding: 12px;
+}
+
+.favoritesSong {
+  background: linear-gradient(45deg, #3B1CA8, #7B8F9A);
+}
+
+.bi-bookmark-fill {
+  color: #149643;
+  background-color: #004537;
+}
+
+.bi-bookmark-fill,
+.favoritesSong {
+  font-size: 0.8em;
+}
+.cardDiv {
+  height: 100px;
+}
+
+.imgsDiv {
+  width: 100px;
+  height: 100px;
+}
+MIN-WIDTH 992
+.imgsDiv {
+    min-width: 60px;
+    max-width: 80px;
+
+    min-height: 60px;
+    max-height: 80px;
+  }
+
+  #player {
+    position: fixed;
+    background-color: #121212 ;
+    border-top: 1px solid #363636;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+  }
+MIN WIDTH 1200
+.cardDiv {
+    height: 70px;
+    background-color: #2D2D2D;
+    border-radius: 5px;
+  }
+
+  .imgsDiv {
+    min-width: 50px;
+    max-width: 70px;
+    min-height: 50px;
+    max-height: 70px;
+  }
+Daniele Franceschini — Ieri alle 14:33
+ <div class="p-2">
+          <div class="cardDiv row mb-lg-3 me-2 p-0">
+            <div class="row col-5 m-0 p-0 pe-2 imgsDiv">
+              <img
+                src="assets/imgs/search/image-15.jpg"
+                alt="Cover"
+Mostra
+message.txt
+5 KB
+<div class="container-fluid row row-cols-2 row-cols-xl-3 justify-content-center m-auto">
+Giuseppe Pomo — Ieri alle 14:42
+questo
+// Nascondi "Sfoglia tutto" e i contenuti sottostanti
+  browseSection.style.display = 'none'; // Nascondi il titolo "Sfoglia tutto"
+  browseContainer.style.display = 'none'; // Nascondi il contenitore sottostante
+if (!query) {
+    searchResultsContainer.innerHTML = '';
+    browseSection.style.display = 'block'; // Mostra il titolo "Sfoglia tutto"
+    browseContainer.style.display = 'flex'; // Mostra il contenitore sottostante
+    return;
+  }
+Daniele Franceschini — Ieri alle 14:58
+<aside class="col-12 col-lg-3 order-1 order-lg-0 navigation">
+      <nav>
+        <div
+          class="container d-flex flex-row flex-lg-column justify-content-evenly align-items-center align-items-lg-start my-2 hover">
+          <p class="d-none d-lg-block">
+            <i class="bi bi-three-dots p-1"></i>
+Mostra
+message.txt
+3 KB
+Vittorio Turiaci — Ieri alle 15:14
+const artistId = new URLSearchParams(window.location.search).get('id'); 
+function init() {
+  updateHeartIcon();
+  loadPlaylistFromLocalStorage(); // Carica i brani salvati
+  fetchSongs('664052151'); // Caricamento iniziale delle tracce
+}
+Vittorio Turiaci — Ieri alle 15:26
+664052151
+Giuseppe Pomo — Ieri alle 15:29
+const albumId= new URLSearchParams(window.location.search).get('id');
+console.log(albumId);
+
+
+function init() {
+    updateHeartIcon();
+    loadPlaylistFromLocalStorage(); // Carica i brani salvati
+    fetchSongs(albumId,"id"); // Caricamento iniziale delle tracce
+};
+Giuseppe Pomo — Ieri alle 15:40
+id="songsContainer"
+const albumId = new URLSearchParams(window.location.search).get('id');
+console.log(albumId); // Debug: stampa l'ID dell'album
+
+// Elementi della pagina
+const songsContainer = document.getElementById('songsContainer'); // Contenitore per la lista delle canzoni
+Mostra
+message.txt
+3 KB
+Walter Antonelli — Ieri alle 15:54
+const albumId = new URLSearchParams(window.location.search).get('id');
+console.log(albumId); // Debug: stampa l'ID dell'album
+
+// Elementi della pagina
+const songsContainer = document.getElementById('songsContainer'); // Contenitore per la lista delle canzoni
+Mostra
+message.txt
+3 KB
+const ALBUM_URL =
+  'https://striveschool-api.herokuapp.com/api/deezer/album/664052151';
+
+let playlist = []; // Array delle tracce
+let currentTrackIndex = 0; // Indice della traccia corrente
+let idBase = 3068802251;
+Mostra
+message.txt
+12 KB
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Album</title>
+Mostra
+message.txt
+15 KB
+Daniele Franceschini — Ieri alle 16:59
+const cardImg = document.createElement("div");
+        cardImg.className = "position-relative";
+
+        // Aggiungi l'immagine alla card
+        const imgElement = document.createElement("img");
+        imgElement.className = classConfig.imageClass;
+        imgElement.src = album.cover; // Usa l'URL dell'immagine dal JSON
+        imgElement.alt = album.title;
+        cardImg.appendChild(imgElement);
+
+        // Aggiungi icona play
+        const play = document.createElement("i");
+        play.className =
+          "bi bi-play-fill bg-success position-absolute d-flex align-items-center justify-content-center fs-4 d-none";
+        play.style.bottom = "10px";
+        play.style.right = "10px";
+        play.style.width = "40px";
+        play.style.height = "40px";
+        play.style.borderRadius = "50%";
+        cardImg.appendChild(play);
+
+        cardDiv.appendChild(cardImg);
+
+        // Mostra il pulsante play al passaggio del mouse
+        cardImg.addEventListener("mouseover", () => {
+          play.classList.remove("d-none");
+        });
+
+        // Nascondi il pulsante play quando il mouse lascia l'immagine
+        cardImg.addEventListener("mouseout", () => {
+          play.classList.add("d-none");
+        });
+Daniele Franceschini — Ieri alle 17:10
+<div class="mt-1 px-2">
+          <div class="d-flex align-items-center py-2">
+            <div class="col-11 col-lg-8 d-flex align-items-center">
+              <p class="d-none d-lg-block pe-3">1</p>
+              <div>
+                <p>Titolo</p>
+                <p class="text-secondary">artista</p>
+              </div>
+            </div>
+            <p class="text-secondary col-3 d-none d-lg-block text-center">
+              10000
+            </p>
+            <p class="text-secondary col-1 d-none d-lg-block text-center">
+              1.29
+            </p>
+            <p class="text-secondary col-1 d-lg-none">
+              <i class="bi bi-three-dots-vertical"></i>
+            </p>
+          </div>
+        </div>
+Giuseppe Pomo — Ieri alle 17:21
+
+const albumId = new URLSearchParams(window.location.search).get('id');
+console.log(albumId); // Debug: stampa l'ID dell'album
+
+// Elementi della pagina
+const songsContainer = document.getElementById('songsContainer'); // Contenitore per la lista delle canzoni
+Mostra
+album.js
+4 KB
+Vittorio Turiaci — Ieri alle 19:27
+Immagine
+Walter Antonelli — Oggi alle 03:33
+modificato il player - ora è possibile cliccare le canzoni salvate dai preferiti ... ma non ho capito perche le fa partire e poi lo chiude sto maledetto
+const ALBUM_URL =
+  'https://striveschool-api.herokuapp.com/api/deezer/album/664052151';
+
+let playlist = []; // Array delle tracce
+let currentTrackIndex = 0; // Indice della traccia corrente
+let idBase = 3068802251;
+Mostra
+message.txt
+13 KB
+il file che è sotto è una modifica del file closeAside.js
+/-------------------------SCIANTAL------------------------------/
+
+/* Questa funzione serve a chiudere la Aside dopo il wrapper centrale 
+il wrapper centraler si allarga occupando lo spazio della aside 
+Codice da controllare */
+let stateCollapse = false;
+const wrapper = document.getElementById('wrapperCentral');
+const expandeCollapse = document.getElementById('expandeCollapse');
+const asideFriends = document.getElementById('asideFriends');
+const closeBtn = document.getElementById('closeBtn');
+
+function closeAside() {
+  stateCollapse = !stateCollapse;
+  expandeCollapse.classList.add('ms-1');
+  if (stateCollapse === true) {
+        asideFriends.classList.remove('d-lg-block');
+        wrapper.classList.remove('col-lg-7');
+        wrapper.classList.add('col-lg-9');
+        expandeCollapse.classList.remove('bi-arrows-angle-contract');
+        expandeCollapse.classList.add('bi-arrows-angle-expand');
+  } else {
+        asideFriends.classList.add('d-lg-block');
+        wrapper.classList.add('col-lg-7');
+        wrapper.classList.remove('col-lg-9');
+        expandeCollapse.classList.remove('bi-arrows-angle-expand');
+        expandeCollapse.classList.add('bi-arrows-angle-contract');
+  }
+}
+
+closeBtn.addEventListener('click', function () {
+  closeAside();
+});
+
+expandeCollapse.addEventListener('click', function () {
+    closeAside();
+  });
+Giuseppe Pomo — Oggi alle 09:14
+Immagine
+Giuseppe Pomo — Oggi alle 09:40
+const searchApiUrl =
+  'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
+
+const searchInput = document.querySelector('input[type="text"]');
+const searchResultsContainer = document.getElementById('searchResults');
+Mostra
+message.txt
+5 KB
+playButton.addEventListener('click', () => {
+  // Trova l'indice del brano nella playlist o lo aggiunge se non esiste
+  const trackIndex = playlist.findIndex((track) => track.id === song.id);
+  if (trackIndex === -1) {
+    playlist.push(song); // Aggiungi il brano alla playlist se non esiste
+    currentTrackIndex = playlist.length - 1; // Imposta l'indice attuale all'ultimo brano
+  } else {
+    currentTrackIndex = trackIndex; // Imposta l'indice attuale al brano esistente
+  }
+
+  // Carica e riproduci il brano
+  loadTrack(currentTrackIndex);
+  audioElement.play();
+  updatePlayButton(true); // Aggiorna l'icona del pulsante di riproduzione
+});
+Giuseppe Pomo — Oggi alle 09:56
+const albumId = new URLSearchParams(window.location.search).get('id');
+
+const songsContainer = document.getElementById('songsContainer');
+
+const albumImg = document.getElementById('albumImage');
+const albumTitle = document.getElementById('albumTitle');
+Mostra
+message.txt
+5 KB
+Daniele Franceschini — Oggi alle 10:25
+#trackInfo a {
+  text-decoration: none;
+}
+
+#trackInfo a:hover, .trackInfo:hover {
+  text-decoration: underline;
+}
+
+.trackInfo {
+  cursor: pointer;
+}
+Daniele Franceschini — Oggi alle 11:57
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+Mostra
+message.txt
+8 KB
+Giuseppe Pomo — Oggi alle 12:13
+<a href="myLibrary.html"
+            class="px-2 px-lg-0 m-0 mb-lg-2 text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+            <i class="bi bi-collection p-1"></i>
+            <span>La tua Libreria</span>
+          </a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="icon" href="assets/imgs/favicon.svg" type="image/svg+xml" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+   
+    <div id="mainContainer" class="container-fluid row p-0 m-auto d-flex">
+        <aside class="col-12 col-lg-3 order-1 order-lg-0 navigation">
+          <nav>
+            <div
+              class="container d-flex flex-row flex-lg-column justify-content-evenly align-items-center align-items-lg-start my-2 hover">
+              <p class="d-none d-lg-block">
+                <i class="bi bi-three-dots p-1"></i>
+              </p>
+              <a href="index.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 fw-bold text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <i class="bi bi-house-door-fill p-1" aria-current="page"></i>
+                <span>Home</span>
+              </a>
+              <a href="search.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <i class="bi bi-search p-1"></i>Cerca
+              </a>
+              <a href="myLibrary.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <i class="bi bi-collection p-1"></i>
+                <span>La tua Libreria</span>
+              </a>
+            </div>
+            <div class="container d-none d-lg-block mt-2 hover">
+              <p class="mb-2">
+                <i class="bi bi-plus bg-secondary border-0 rounded-1 text-white fs-5 me-2"></i>
+                <span>Crea Playlist</span>
+              </p>
+              <p class="mb-2">
+                <i class="bi bi-heart-fill border-0 rounded-1 text-white p-1 me-2 favoritesSong"></i>
+                Brani che ti piacciono
+              </p>
+              <p class="mb-2">
+                <i class="bi bi-bookmark-fill border-0 rounded-1 p-1 me-2"></i>
+                I tuoi episodi
+              </p>
+            </div>
+          </nav>
+          <div id="savedPlaylistContainer pe-0">
+            <hr class="text-white m-0 mb-2 border-3" />
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+              </svg>
+              Brani che ti Piacciono
+            </p>
+            <ul id="savedPlaylistItems" class="mt-2 p-0"></ul>
+          </div>
+        </aside>
+      <main id="wrapperCentral" class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
+        <div class="container-fluid d-none d-lg-block d-flex justify-content-between">
+          <div class="d-flex justify-content-between mt-3">
+            <div class="d-flex">
+              <p
+                class="m-1 bg-secondary rounded-5 p-1 px-2 d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-chevron-left"></i>
+              </p>
+              <p
+                class="m-1 bg-secondary rounded-5 p-1 px-2 d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-chevron-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <h1 class="mb-4">La Mia Libreria</h1>
+        <div id="savedSongsContainer" class="mt-3"></div>
+      </main>
+        <div id="player" class="d-flex justify-content-center px-0">
+          <div id="playerNav" class="container-fluid row rounded-3 bg-dark">
+            <div id="trackInfo" class="col-9 col-lg-4 d-flex align-items-center">
+              <div id="albumCover" class="">
+                <img src="assets/imgs/main/image-12.jpg" alt="" class="rounded-5" />
+              </div>
+              <div id="track" class="ms-2 d-lg-none w-100">
+                <h5 id="title" class="m-0 fs-6"></h5>
+... (117 righe a disposizione)
+Riduci
+myLibrary.html
+11 KB
+const savedSongsContainer = document.getElementById('savedSongsContainer');
+
+// Funzione per caricare le canzoni salvate nel localStorage
+function loadSavedSongs() {
+  const savedData = localStorage.getItem('savedPlaylist');
+  if (savedData) {
+    try {
+      const savedPlaylist = JSON.parse(savedData);
+      renderSavedSongs(savedPlaylist);
+    } catch (error) {
+      console.error('Errore nel parsing della playlist salvata:', error);
+      savedSongsContainer.innerHTML =
+        "<p class='text-white'>Errore nel caricamento della libreria</p>";
+    }
+  } else {
+    savedSongsContainer.innerHTML =
+      "<p class='text-white'>Nessuna canzone salvata nella libreria</p>";
+  }
+}
+
+// Funzione per mostrare le canzoni salvate
+function renderSavedSongs(songs) {
+  savedSongsContainer.innerHTML = '';
+
+  if (songs.length === 0) {
+    savedSongsContainer.innerHTML =
+      "<p class='text-white'>Nessuna canzone salvata</p>";
+    return;
+  }
+
+  const ul = document.createElement('ul');
+  ul.style.listStyle = 'none';
+  ul.style.padding = '0';
+
+  songs.forEach((song, index) => {
+    const li = document.createElement('li');
+    li.style.display = 'flex';
+    li.style.alignItems = 'center';
+    li.style.marginBottom = '15px';
+
+    const img = document.createElement('img');
+    img.src = song.album.cover_small;
+    img.alt = song.title;
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.marginRight = '15px';
+
+    const details = document.createElement('div');
+    details.style.flex = '1';
+
+    const title = document.createElement('p');
+    title.textContent = song.title;
+    title.style.color = 'white';
+    title.style.margin = '0';
+
+    const author = document.createElement('p');
+    author.textContent = song.artist.name;
+    author.style.color = '#ccc';
+    author.style.margin = '0';
+
+    details.appendChild(title);
+    details.appendChild(author);
+
+    const playButton = document.createElement('button');
+    playButton.textContent = 'Play';
+    playButton.style.marginLeft = '15px';
+    playButton.style.backgroundColor = '#1db954';
+    playButton.style.color = 'white';
+    playButton.style.border = 'none';
+    playButton.style.borderRadius = '5px';
+
+    playButton.addEventListener('click', () => {
+      currentTrackIndex = index;
+      loadTrack(currentTrackIndex);
+      audioElement.play();
+      updatePlayButton(true);
+    });
+
+    const heartIcon = document.createElement('i');
+    heartIcon.className = 'bi bi-heart-fill ms-3 text-success';
+    heartIcon.style.cursor = 'pointer';
+    heartIcon.addEventListener('click', () => {
+      removeTrackFromSavedPlaylist(index);
+    });
+
+    li.appendChild(img);
+    li.appendChild(details);
+    li.appendChild(playButton);
+    li.appendChild(heartIcon);
+
+    ul.appendChild(li);
+  });
+
+  savedSongsContainer.appendChild(ul);
+}
+
+// Rimuove un brano dalla playlist salvata
+function removeTrackFromSavedPlaylist(index) {
+  const savedData = localStorage.getItem('savedPlaylist');
+  if (savedData) {
+... (12 righe a disposizione)
+Riduci
+myLibrary.js
+4 KB
+Walter Antonelli — Oggi alle 12:24
+const randomSong = document.getElementById('randomSong');
+let randomImg = document.getElementById('randomImg');
+let randomSongTitle = document.getElementById('randomSongTitle');
+let randomArtist = document.getElementById('randomArtist');
+const hideDiv = document.getElementById('hideDiv');
+const randomSongBtn = document.getElementById('randomSongBtn');
+Mostra
+message.txt
+6 KB
+Giuseppe Pomo — Oggi alle 12:32
+index.js corretto con funzionalità play sulle cards
+const randomSong = document.getElementById('randomSong');
+let randomImg = document.getElementById('randomImg');
+let randomSongTitle = document.getElementById('randomSongTitle');
+let randomArtist = document.getElementById('randomArtist');
+const hideDiv = document.getElementById('hideDiv');
+const randomSongBtn = document.getElementById('randomSongBtn');
+Mostra
+message.txt
+6 KB
+RacheleBarberis — Oggi alle 12:50
+Tipo di allegato: unknown
+readme.odt
+20.38 KB
+﻿
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="icon" href="assets/imgs/favicon.svg" type="image/svg+xml" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+   
+    <div id="mainContainer" class="container-fluid row p-0 m-auto d-flex">
+        <aside class="col-12 col-lg-3 order-1 order-lg-0 navigation">
+          <nav>
+            <div
+              class="container d-flex flex-row flex-lg-column justify-content-evenly align-items-center align-items-lg-start my-2 hover">
+              <p class="d-none d-lg-block">
+                <i class="bi bi-three-dots p-1"></i>
+              </p>
+              <a href="index.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 fw-bold text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <i class="bi bi-house-door-fill p-1" aria-current="page"></i>
+                <span>Home</span>
+              </a>
+              <a href="search.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <i class="bi bi-search p-1"></i>Cerca
+              </a>
+              <a href="myLibrary.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                <i class="bi bi-collection p-1"></i>
+                <span>La tua Libreria</span>
+              </a>
+            </div>
+            <div class="container d-none d-lg-block mt-2 hover">
+              <p class="mb-2">
+                <i class="bi bi-plus bg-secondary border-0 rounded-1 text-white fs-5 me-2"></i>
+                <span>Crea Playlist</span>
+              </p>
+              <p class="mb-2">
+                <i class="bi bi-heart-fill border-0 rounded-1 text-white p-1 me-2 favoritesSong"></i>
+                Brani che ti piacciono
+              </p>
+              <p class="mb-2">
+                <i class="bi bi-bookmark-fill border-0 rounded-1 p-1 me-2"></i>
+                I tuoi episodi
+              </p>
+            </div>
+          </nav>
+          <div id="savedPlaylistContainer pe-0">
+            <hr class="text-white m-0 mb-2 border-3" />
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+              </svg>
+              Brani che ti Piacciono
+            </p>
+            <ul id="savedPlaylistItems" class="mt-2 p-0"></ul>
+          </div>
+        </aside>
+      <main id="wrapperCentral" class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
+        <div class="container-fluid d-none d-lg-block d-flex justify-content-between">
+          <div class="d-flex justify-content-between mt-3">
+            <div class="d-flex">
+              <p
+                class="m-1 bg-secondary rounded-5 p-1 px-2 d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-chevron-left"></i>
+              </p>
+              <p
+                class="m-1 bg-secondary rounded-5 p-1 px-2 d-flex justify-content-center align-items-center"
+              >
+                <i class="bi bi-chevron-right"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <h1 class="mb-4">La Mia Libreria</h1>
+        <div id="savedSongsContainer" class="mt-3"></div>
+      </main>
+        <div id="player" class="d-flex justify-content-center px-0">
+          <div id="playerNav" class="container-fluid row rounded-3 bg-dark">
+            <div id="trackInfo" class="col-9 col-lg-4 d-flex align-items-center">
+              <div id="albumCover" class="">
+                <img src="assets/imgs/main/image-12.jpg" alt="" class="rounded-5" />
+              </div>
+              <div id="track" class="ms-2 d-lg-none w-100">
+                <h5 id="title" class="m-0 fs-6"></h5>
+              </div>
+              <div id="trackLg" class="ms-2 d-none d-lg-flex">
+                <div>
+                  <h5 id="titleLg" class="m-0"></h5>
+                  <p id="artistLg"></p>
+                </div>
+                <div class="d-flex align-items-end ms-2">
+                  <i class="heartIcon bi bi-heart filledHeart text-white d-flex align-items-center"></i>
+                </div>
+              </div>
+            </div>
+            <div id="buttons" class="col-3 d-flex justify-content-end align-items-center d-lg-none">
+              <button class="btn text-white fs-1 p-1">
+                <i class="bi bi-pc-display btn text-white fs-4 p-2 d-flex align-items-center"></i>
+              </button>
+              <button class="btn text-white fs-1 p-1">
+                <i class="heartIcon bi bi-heart-fill filledHeart text-white fs-4 p-2 d-flex align-items-center"></i>
+              </button>
+              <button class="btn text-white fs-1 p-1">
+                <i class="bi bi-play-fill p-1 d-flex align-items-center" id="playPause"></i>
+              </button>
+            </div>
+            <div id="playerBar" class="col-4 d-none d-lg-block">
+              <div class="player-btns d-flex flex-column">
+                <div class="controls d-flex justify-content-evenly align-items-center">
+                  <i class="bi bi-shuffle fs-6"></i>
+                  <i class="bi bi-skip-start-fill btn text-white fs-4"></i>
+                  <button class="btn">
+                    <i class="bi bi-play-circle-fill play-pause text-white fs-3"></i>
+                  </button>
+                  <i class="bi bi-skip-end-fill btn text-white fs-4"></i>
+                  <i class="bi bi-repeat fs-6"></i>
+                </div>
+              </div>
+            </div>
+            <div id="playerBtns" class="col-4 d-none d-lg-flex align-items-center justify-content-end">
+              <div class="extras d-flex w-auto justify-content-between">
+                <i class="bi bi-mic"></i>
+                <i class="bi bi-view-list ms-1"></i>
+                <i class="bi bi-pc-display ms-1"></i>
+                <i class="bi bi-volume-up ms-1"></i>
+                <input type="range" class="volume-control ms-1" min="0" max="100" value="100" />
+                <i id="expandeCollapse" class="bi bi-arrows-angle-contract ms-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <aside id="asideFriends" class="d-none d-lg-block col-2 order-2 order-lg-2 mt-3">
+          <div class="container-fluid d-flex d-lg-block d-xl-flex justify-content-between">
+            <div class="d-flex justify-content-end align-items-center">
+              <h6 class="m-0">Attività amici</h6>
+            </div>
+            <div id="asideIcons" class="d-flex justify-content-end">
+              <i class="bi bi-person-plus fs-5"></i>
+              <i id="closeBtn" class="bi bi-x-lg mx-2 fs-5"></i>
+            </div>
+          </div>
+          <div>
+            <div class="row">
+              <div class="col-3 d-flex justify-content-center align-items-center">
+                <img src="assets/imgs/main/image-12.jpg" alt="" class="img-fluid w-75 rounded-5" />
+              </div>
+              <div class="col-6 infos">
+                <h6>Pippo</h6>
+                <p>In camera • Topolino Top Songs</p>
+                <p><i class="bi bi-disc"></i> Ep.III</p>
+              </div>
+              <div class="col-3 infos mt-4 p-0">4 hours</div>
+            </div>
+            <div class="row">
+              <div class="col-3 d-flex justify-content-center align-items-center">
+                <img src="assets/imgs/main/image-12.jpg" alt="" class="img-fluid w-75 rounded-5" />
+              </div>
+              <div class="col-6 infos mt-3">
+                <h6>Pippo</h6>
+                <p>In camera • Topolino Top Songs</p>
+                <p><i class="bi bi-disc"></i> Ep.III</p>
+              </div>
+              <div class="col-3 infos mt-4 p-0">4 hours</div>
+            </div>
+            <div class="row">
+              <div class="col-3 d-flex justify-content-center align-items-center">
+                <img src="assets/imgs/main/image-12.jpg" alt="" class="img-fluid w-75 rounded-5" />
+              </div>
+              <div class="col-6 infos mt-3">
+                <h6>Pippo</h6>
+                <p>In camera • Topolino Top Songs</p>
+                <p><i class="bi bi-disc"></i> Ep.III</p>
+              </div>
+              <div class="col-3 infos mt-4 p-0">4 hours</div>
+            </div>
+            <div class="row">
+              <div class="col-3 d-flex justify-content-center align-items-center">
+                <img src="assets/imgs/main/image-12.jpg" alt="" class="img-fluid w-75 rounded-5" />
+              </div>
+              <div class="col-6 infos mt-3">
+                <h6>Pippo</h6>
+                <p>In camera • Topolino Top Songs</p>
+                <p><i class="bi bi-disc"></i> Ep.III</p>
+              </div>
+              <div class="col-3 infos mt-4 p-0">4 hours</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+     
+
+      
+
+      <script src="assets/js/favorites.js"></script>
+    <script src="assets/js/player.js"></script>
+    <script src="assets/js/closeAside.js"></script>
+    <script src="assets/js/myLibrary.js"></script>
+   
+  </body>
+</html>

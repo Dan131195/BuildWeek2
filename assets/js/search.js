@@ -78,7 +78,6 @@ function renderSearchResults(results) {
       "<p class='text-white'>Nessun risultato trovato</p>";
     return;
   }
-  i;
   const ul = document.createElement('ul');
   ul.style.listStyle = 'none';
   ul.style.padding = '0';
@@ -131,12 +130,17 @@ function renderSearchResults(results) {
     playButton.style.borderRadius = '5px';
 
     playButton.addEventListener('click', () => {
-      let id = song.id;
-      fetchSongs(`${song.album.id}`, id);
-      console.log(playlist);
-      updateHeartIcon();
+      const trackIndex = playlist.findIndex((track) => track.id === song.id);
+      if (trackIndex === -1) {
+        playlist.push(song);
+        currentTrackIndex = playlist.length - 1;
+      } else {
+        currentTrackIndex = trackIndex;
+      }
 
-      console.log(`Riproduzione di: ${song.title} - ${song.artist.name}`);
+      loadTrack(currentTrackIndex);
+      audioElement.play();
+      updatePlayButton(true);
     });
 
     li.appendChild(img);

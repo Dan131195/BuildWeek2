@@ -1,5 +1,5 @@
 let savedPlaylist = []; // Array per i brani preferiti
-const heartIcon = document.querySelectorAll(".filledHeart");
+const heartIcon = document.querySelectorAll('.filledHeart');
 
 // Funzione per aggiungere o rimuovere il brano dalla playlist
 function togglePlaylist() {
@@ -32,5 +32,5 @@ function togglePlaylist() {
 
 // Aggiunge o rimuove il brano preferito al click sull'icona
 heartIcon.forEach((element) => {
-  element.addEventListener("click", togglePlaylist);
+  element.addEventListener('click', togglePlaylist);
 });

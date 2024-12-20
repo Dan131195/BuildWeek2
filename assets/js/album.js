@@ -10,17 +10,21 @@ const albumReleaseLg = document.getElementById('albumReleaseLg');
 const songsNum = document.getElementById('songsNum');
 const albumDuration = document.getElementById('albumDuration');
 
-async function fetchAlbum(id) {
+async function fetchAlbum(albumId) {
   try {
     const response = await fetch(
-      `https://striveschool-api.herokuapp.com/api/deezer/album/${id}`
+      `https://striveschool-api.herokuapp.com/api/deezer/album/${albumId}`
     );
+    if (!response.ok) throw new Error('Errore nel recupero delle tracce');
     const data = await response.json();
-    console.log('Canzoni ricevute:', data);
+    playlist = data.tracks.data;
+    albumTracks = playlist;
+    console.log(playlist);
+    loadTrack(currentTrackIndex);
     printAlbum(data);
-    renderSongs(data.tracks.data);
+    renderSongs(playlist);
   } catch (error) {
-    console.error('Errore nel caricamento delle canzoni:', error);
+    console.error('Errore:', error);
   }
 }
 
@@ -71,6 +75,22 @@ function renderSongs(songs) {
     title.textContent = `${song.title}`;
     title.style.color = 'white';
     title.style.margin = '0';
+    title.classList.add('songTitleInAlbum');
+    title.addEventListener('click', () => {
+      // Trova l'indice del brano nella playlist o lo aggiunge se non esiste
+      const trackIndex = playlist.findIndex((track) => track.id === song.id);
+      if (trackIndex === -1) {
+        playlist.push(song); // Aggiungi il brano alla playlist se non esiste
+        currentTrackIndex = playlist.length - 1; // Imposta l'indice attuale all'ultimo brano
+      } else {
+        currentTrackIndex = trackIndex; // Imposta l'indice attuale al brano esistente
+      }
+
+      // Carica e riproduci il brano
+      loadTrack(currentTrackIndex);
+      audioElement.play();
+      updatePlayButton(true); // Aggiorna l'icona del pulsante di riproduzione
+    });
 
     const artist = document.createElement('p');
     artist.textContent = song.artist.name;
@@ -119,5 +139,12 @@ function init() {
     updateHeartIcon();
   }, 500);
 }
+const playAlbumButton = document.getElementById('playAlbum');
+
+playAlbumButton.addEventListener('click', () => {
+  loadTrack(currentTrackIndex);
+  audioElement.play();
+  updatePlayButton(true);
+});
 
 document.addEventListener('DOMContentLoaded', init);

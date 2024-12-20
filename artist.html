@@ -131,7 +131,10 @@
           </div>
           <div class="order-1">
             <i class="bi bi-shuffle text-success me-2 d-lg-none"></i>
-            <i class="bi bi-play-fill bg-success text-white p-2 rounded-5"></i>
+            <i
+              id="playButton"
+              class="bi bi-play-fill bg-success text-white p-2 rounded-5"
+            ></i>
           </div>
         </div>
         <div
@@ -142,10 +145,7 @@
             <h4 class="d-none d-lg-block">Brani che ti piacciono</h4>
             <div class="d-flex align-items-center py-2">
               <div class="position-relative">
-                <img
-                  src="assets/imgs/main/image-12.jpg"
-                  class="rounded-5 imgArtist"
-                />
+                <img id="artistImgRounded" src="" class="rounded-5 imgArtist" />
                 <i
                   class="bi bi-heart-fill bg-success border border-2 border-white text-black p-1 position-absolute text-center"
                   id="heartArtist"
