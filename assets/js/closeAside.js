@@ -27,7 +27,7 @@ function closeAside() {
     expandeCollapse.classList.add('bi-arrows-angle-contract');
     const card = document.querySelectorAll('.card');
     card.forEach(element => {
-      element.style.height = '300px';
+      element.style.height = '280px';
     });
   }
 }
