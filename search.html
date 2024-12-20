@@ -52,26 +52,25 @@
           <div class="container d-none d-lg-block mt-2 hover">
             <p class="mb-2">
               <i
-                class="bi bi-plus bg-secondary border-0 rounded-1 text-white fs-5 me-2"
+                class="bi bi-plus bg-secondary border-0 rounded-1 text-white fs-4"
               ></i>
               <span>Crea Playlist</span>
             </p>
             <p class="mb-2">
               <i
-                class="bi bi-heart-fill border-0 rounded-1 text-white p-1 me-2 favoritesSong"
+                class="bi bi-heart-fill bg-secondary border-0 rounded-1 text-white p-1 fs-6"
               ></i>
               Brani che ti piacciono
             </p>
             <p class="mb-2">
               <i
-                class="bi bi-bookmark-fill border-0 rounded-1 p-1 me-2"
+                class="bi bi-bookmark-fill bg-secondary border-0 rounded-1 text-white p-1 fs-6"
               ></i>
               I tuoi episodi
             </p>
           </div>
         </nav>
         <div id="savedPlaylistContainer">
-          <hr class="text-white m-0 mb-2 border-3">
           <p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,26 +87,26 @@
             </svg>
             Brani che ti Piacciono
           </p>
-          <ul id="savedPlaylistItems" class="mt-2 p-0"></ul>
+          <ul id="savedPlaylistItems"></ul>
         </div>
       </aside>
-      <main class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
+      <main id="wrapperCentral" class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
         <h1 class="mb-4">Cerca</h1>
         <div class="btn rounded-2 bg-dark w-100 d-flex justify-content-start">
           <i class="bi bi-search text-white"></i>
           <input
             type="text"
-            class="bg-dark border-0 text-white ps-3 w-75"
+            class="bg-dark border-0 text-white w-100 ms-2"
             placeholder="Cosa vuoi ascoltare?"
           />
         </div>
         <div id="searchResults" class="mt-3"></div>
-        <h2 class="text-center mt-4">Sfoglia tutto</h2>
-        <div class="container-fluid">
+        <h2 id="browseSection" class="text-center mt-4">Sfoglia tutto</h2>
+        <div id="browseContainer" class="container-fluid">
           <div class="row row-cols-2 row-cols-lg-3">
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Podcast</h4>
                 <img
@@ -118,7 +117,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Viva Latino</h4>
                 <img
@@ -129,7 +128,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>R&B</h4>
                 <img
@@ -140,7 +139,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Rock</h4>
                 <img
@@ -151,7 +150,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Travel</h4>
                 <img
@@ -162,7 +161,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Summer</h4>
                 <img
@@ -173,7 +172,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Top Songs</h4>
                 <img
@@ -184,7 +183,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Soul</h4>
                 <img
@@ -195,7 +194,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Party</h4>
                 <img
@@ -206,7 +205,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Afro</h4>
                 <img
@@ -217,7 +216,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Classic</h4>
                 <img
@@ -228,7 +227,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>League of Legends</h4>
                 <img
@@ -239,7 +238,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Metal</h4>
                 <img
@@ -250,7 +249,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Pop</h4>
                 <img
@@ -261,7 +260,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Blues</h4>
                 <img
@@ -272,7 +271,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Country</h4>
                 <img
@@ -283,7 +282,7 @@
             </div>
             <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Kids</h4>
                 <img
@@ -292,9 +291,9 @@
                 />
               </div>
             </div>
-            <div class="p-2 searchDiv">
+            <div class="p-2">
               <div
-                class="rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden searchCard"
+                class="searchCard rounded-1 d-flex justify-content-between pt-3 ps-2 overflow-hidden"
               >
                 <h4>Gaming</h4>
                 <img
@@ -306,7 +305,7 @@
           </div>
         </div>
       </main>
-      <div id="player" class="d-flex justify-content-center">
+      <div id="player" class="d-flex justify-content-center px-0">
         <div id="playerNav" class="container-fluid row rounded-3 bg-dark">
           <div id="trackInfo" class="col-9 col-lg-4 d-flex align-items-center">
             <div id="albumCover" class="">
@@ -326,7 +325,7 @@
               </div>
               <div class="d-flex align-items-end ms-2">
                 <i
-                  class="bi bi-heart filledHeart text-white d-flex align-items-center"
+                  class="heartIcon bi bi-heart filledHeart text-white d-flex align-items-center"
                 ></i>
               </div>
             </div>
@@ -342,7 +341,7 @@
             </button>
             <button class="btn text-white fs-1 p-1">
               <i
-                class="bi bi-heart-fill filledHeart text-white fs-4 p-2 d-flex align-items-center"
+                class="heartIcon bi bi-heart-fill filledHeart text-white fs-4 p-2 d-flex align-items-center"
               ></i>
             </button>
             <button class="btn text-white fs-1 p-1">
@@ -385,12 +384,18 @@
                 max="100"
                 value="100"
               />
-              <i class="bi bi-arrows-angle-expand ms-1"></i>
+              <i
+                id="expandeCollapse"
+                class="bi bi-arrows-angle-contract ms-1"
+              ></i>
             </div>
           </div>
         </div>
       </div>
-      <aside class="d-none d-lg-block col-2 order-2 order-lg-2 mt-3">
+      <aside
+        id="asideFriends"
+        class="d-none d-lg-block col-2 order-2 order-lg-2 mt-3"
+      >
         <div
           class="container-fluid d-flex d-lg-block d-xl-flex justify-content-between"
         >
@@ -399,7 +404,7 @@
           </div>
           <div id="asideIcons" class="d-flex justify-content-end">
             <i class="bi bi-person-plus fs-5"></i>
-            <i class="bi bi-x-lg mx-2 fs-5"></i>
+            <i id="closeBtn" class="bi bi-x-lg mx-2 fs-5"></i>
           </div>
         </div>
         <div>
@@ -475,5 +480,6 @@
     <script src="assets/js/search.js"></script>
     <script src="assets/js/favorites.js"></script>
     <script src="assets/js/player.js"></script>
+    <script src="assets/js/closeAside.js"></script>
   </body>
 </html>

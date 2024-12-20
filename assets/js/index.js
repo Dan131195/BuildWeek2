@@ -5,13 +5,25 @@ let randomArtist = document.getElementById("randomArtist");
 const hideDiv = document.getElementById("hideDiv");
 const randomSongBtn = document.getElementById("randomSongBtn");
 
+document.addEventListener("load", init());
+
+function init() {
+  fetchCardsMain();
+  setTimeout(() => {
+    updateHeartIcon();
+  }, 1000);
+}
+
 hideDiv.addEventListener("click", function (e) {
   e.preventDefault();
   randomSong.classList.add("d-none");
 });
 
+//Klajdi non c'è
+//è andato via
+// klajdi non è più cosa mia
+
 function fetchAndDisplayData() {
-  // Genera un numero intero casuale per 'query'
   let query = Math.floor(Math.random() * 1000 + 1);
   const endpoint = `https://striveschool-api.herokuapp.com/api/deezer/artist/${query}/top?limit=1`;
 
@@ -24,7 +36,6 @@ function fetchAndDisplayData() {
       }
       console.log(songs);
 
-      //const songs = data;
       songs.forEach((item) => {
         randomImg.src = item.album.cover;
         randomImg.alt = item.album.title;
@@ -35,7 +46,7 @@ function fetchAndDisplayData() {
           fetchSongs(`${item.album.id}`);
           setTimeout(() => {
             audioElement.play();
-            updatePlayButton(true); // Aggiorna bottone a "Pausa"
+            updatePlayButton(true);
           }, 1000);
         });
         console.log(`ID: ${item.id}, Nome: ${item.album.title}`);
@@ -53,18 +64,17 @@ function fetchHomePage() {
 fetchHomePage();
 
 const classConfig = {
-  containerClass: "p-1 mt-3",
-  cardClass: "card bg-dark text-white p-2",
+  containerClass: "p-1",
+  cardClass: "card bg-dark text-white",
   imageClass: "card-img-top",
-  bodyClass: "card-body p-0 pt-3",
-  titleClass: "card-title ",
+  bodyClass: "card-body",
+  titleClass: "card-title",
   textClass: "card-text",
-  // footerClass: "card-footer",
-  // buttonClass: "",
+  footerClass: "card-footer",
+  buttonClass: "",
 };
 
 function fetchAndDisplayRandom() {
-  // Genera un numero intero casuale per 'query'
   let query = Math.floor(Math.random() * 1000 + 2);
   const endpoint = `https://striveschool-api.herokuapp.com/api/deezer/artist/${query}/albums`;
 
@@ -72,7 +82,6 @@ function fetchAndDisplayRandom() {
     .then((response) => response.json())
     .then((data) => {
       if (data.data && data.data.length > 0) {
-        // Seleziona un album casuale dall'elenco
         const randomIndex = Math.floor(Math.random() * data.data.length);
         const album = data.data[randomIndex];
 
@@ -81,67 +90,55 @@ function fetchAndDisplayRandom() {
         const mainContainer = document.getElementById("fetchCards");
         mainContainer.classList.add("row");
 
-        // Crea un div per il contenitore della card
         const containerDiv = document.createElement("div");
         containerDiv.className = classConfig.containerClass;
 
-        // Crea l'elemento della card
         const cardDiv = document.createElement("div");
         cardDiv.className = classConfig.cardClass;
-
-        //-----------------------------------------------------
 
         const cardImg = document.createElement("div");
         cardImg.className = "position-relative";
 
-        // Aggiungi l'immagine alla card
         const imgElement = document.createElement("img");
         imgElement.className = classConfig.imageClass;
-        imgElement.src = album.cover; // Usa l'URL dell'immagine dal JSON
+        imgElement.src = album.cover;
         imgElement.alt = album.title;
         cardImg.appendChild(imgElement);
 
-        // Aggiungi icona play
         const play = document.createElement("i");
         play.className =
-          "bi bi-play-fill bg-success position-absolute d-flex align-items-center justify-content-center fs-5 d-none";
+          "bi bi-play-fill bg-success position-absolute d-flex align-items-center justify-content-center fs-4 d-none";
         play.style.bottom = "10px";
         play.style.right = "10px";
         play.style.width = "40px";
         play.style.height = "40px";
         play.style.borderRadius = "50%";
+        play.style.cursor = "pointer";
         cardImg.appendChild(play);
+
 
         cardDiv.appendChild(cardImg);
 
-        // Mostra il pulsante play al passaggio del mouse
-        cardImg.addEventListener("mouseover", () => {
+        cardDiv.addEventListener("mouseover", () => {
           play.classList.remove("d-none");
         });
 
-        // Nascondi il pulsante play quando il mouse lascia l'immagine
-        cardImg.addEventListener("mouseout", () => {
+        cardDiv.addEventListener("mouseout", () => {
           play.classList.add("d-none");
         });
 
-        //----------------------------------------------------------------
-
-        // Crea il corpo della card
         const cardBody = document.createElement("div");
         cardBody.className = classConfig.bodyClass;
 
-        // Aggiungi il titolo
         const titleElement = document.createElement("h6");
         titleElement.className = classConfig.titleClass;
         titleElement.textContent = album.title;
         cardBody.appendChild(titleElement);
 
-        // Aggiungi il corpo alla card
         cardDiv.appendChild(cardBody);
 
         containerDiv.appendChild(cardDiv);
 
-        // Aggiungi il contenitore al mainContainer nel DOM
         mainContainer.appendChild(containerDiv);
       } else {
         console.warn("Nessun album trovato per questo artista.");
@@ -152,9 +149,7 @@ function fetchAndDisplayRandom() {
 
 function fetchCardsMain() {
   //FUNZIONE SCIANTAL
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 10; i++) {
     fetchAndDisplayRandom();
   }
 }
-
-fetchCardsMain();

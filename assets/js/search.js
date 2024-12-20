@@ -1,16 +1,17 @@
 const searchApiUrl =
   'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
 
-// Elementi della pagina
 const searchInput = document.querySelector('input[type="text"]');
-const searchResultsContainer = document.getElementById('searchResults'); // Contenitore per i risultati
-const audioPlayer = new Audio(); // Creazione del player audio
+const searchResultsContainer = document.getElementById('searchResults');
+const audioPlayer = new Audio();
 
 document.addEventListener('load', init());
 function init() {
   changeColor();
+  setTimeout(() => {
+    updateHeartIcon();
+  }, 500);
 }
-
 function getRandomColor() {
   const colors = [
     '#E13300',
@@ -38,20 +39,18 @@ function changeColor() {
   });
 }
 
-// Funzione per cercare le canzoni basandosi sulla query dell'utente
 async function searchSongs(query) {
   try {
     const response = await fetch(`${searchApiUrl}${query}`);
     const data = await response.json();
-    console.log('Canzoni trovate:', data.data); // Debug per verificare i risultati
-    return data.data; // Restituisce l'array delle canzoni trovate
+    console.log('Canzoni trovate:', data.data);
+    return data.data;
   } catch (error) {
     console.error('Errore nella ricerca delle canzoni:', error);
     return [];
   }
 }
 
-// Funzione per gestire la ricerca
 async function handleSearch(event) {
   const query = event.target.value.trim();
   const browseSection = document.getElementById('browseSection');
@@ -66,16 +65,12 @@ async function handleSearch(event) {
     return;
   }
 
-  // Cerca le canzoni basandosi sulla query
   const results = await searchSongs(query);
 
-  // Mostra i risultati della ricerca
   renderSearchResults(results);
 }
 
-// Funzione per mostrare i risultati della ricerca
 function renderSearchResults(results) {
-  // Svuota i risultati precedenti
   searchResultsContainer.innerHTML = '';
 
   if (results.length === 0) {
@@ -83,8 +78,7 @@ function renderSearchResults(results) {
       "<p class='text-white'>Nessun risultato trovato</p>";
     return;
   }
-
-  // Creazione di una lista dei risultati
+  i;
   const ul = document.createElement('ul');
   ul.style.listStyle = 'none';
   ul.style.padding = '0';
@@ -95,7 +89,6 @@ function renderSearchResults(results) {
     li.style.alignItems = 'center';
     li.style.marginBottom = '15px';
 
-    // Immagine dell'album
     const img = document.createElement('img');
     img.src = song.album.cover_small;
     img.alt = song.title;
@@ -103,7 +96,6 @@ function renderSearchResults(results) {
     img.style.height = '50px';
     img.style.marginRight = '15px';
 
-    // Dettagli della canzone
     const details = document.createElement('div');
     details.style.flex = '1';
 
@@ -130,7 +122,6 @@ function renderSearchResults(results) {
     details.appendChild(author);
     details.appendChild(duration);
 
-    // Pulsante play
     const playButton = document.createElement('button');
     playButton.textContent = 'Play';
     playButton.style.marginLeft = '15px';
@@ -139,16 +130,12 @@ function renderSearchResults(results) {
     playButton.style.border = 'none';
     playButton.style.borderRadius = '5px';
 
-    // Evento click per riprodurre la traccia
     playButton.addEventListener('click', () => {
       let id = song.id;
       fetchSongs(`${song.album.id}`, id);
       console.log(playlist);
       updateHeartIcon();
-      setTimeout(() => {
-        audioElement.play();
-        updatePlayButton(true); // Aggiorna bottone a "Pausa"
-      }, 1000);
+
       console.log(`Riproduzione di: ${song.title} - ${song.artist.name}`);
     });
 
@@ -162,5 +149,4 @@ function renderSearchResults(results) {
   searchResultsContainer.appendChild(ul);
 }
 
-// Aggiungi evento input per la ricerca
 searchInput.addEventListener('input', handleSearch);
