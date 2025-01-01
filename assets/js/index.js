@@ -5,9 +5,12 @@ let randomArtist = document.getElementById('randomArtist');
 const hideDiv = document.getElementById('hideDiv');
 const randomSongBtn = document.getElementById('randomSongBtn');
 
-document.addEventListener('load', init());
+document.addEventListener('DOMContentLoaded', init);
+
+let currentlyPlayingCard = null;
 
 function init() {
+  fetchAndDisplayData();
   fetchCardsMain();
   setTimeout(() => {
     updateHeartIcon();
@@ -19,12 +22,8 @@ hideDiv.addEventListener('click', function (e) {
   randomSong.classList.add('d-none');
 });
 
-//Klajdi non c'è
-//è andato via
-// klajdi non è più cosa mia
-
 function fetchAndDisplayData() {
-  let query = Math.floor(Math.random() * 1000 + 1);
+  let query = Math.floor(Math.random() * 999 + 1);
   const endpoint = `https://striveschool-api.herokuapp.com/api/deezer/artist/${query}/top?limit=1`;
 
   fetch(endpoint)
@@ -33,39 +32,33 @@ function fetchAndDisplayData() {
       const songs = data.data;
       if (songs.length === 0) {
         fetchAndDisplayData();
-      }
-      console.log(songs);
+      } else {
+        songs.forEach((item) => {
+          randomImg.src = item.album.cover;
+          randomImg.alt = item.album.title;
+          randomSongTitle.textContent = item.album.title;
+          randomArtist.textContent = item.artist.name;
 
-      songs.forEach((item) => {
-        randomImg.src = item.album.cover;
-        randomImg.alt = item.album.title;
-        randomSongTitle.textContent = item.album.title;
-        randomArtist.textContent = item.artist.name;
-
-        randomSongBtn.addEventListener('click', function () {
-          fetchSongs(`${item.album.id}`);
-          setTimeout(() => {
-            audioElement.play();
-            updatePlayButton(true);
-          }, 1000);
+          randomSongBtn.addEventListener('click', function () {
+            fetchSongs(`${item.album.id}`);
+            setTimeout(() => {
+              audioElement.play();
+              updatePlayButton(true);
+            }, 1000);
+          });
         });
-        console.log(`ID: ${item.id}, Nome: ${item.album.title}`);
-      });
+      }
     })
     .catch((error) => console.error('Errore:', error));
 }
 
 function fetchHomePage() {
-  //FUNZIONE SCIANTAL
-
   fetchAndDisplayData();
 }
 
-fetchHomePage();
-
 const classConfig = {
   containerClass: 'p-1',
-  cardClass: 'card bg-dark text-white',
+  cardClass: 'card bg-transparent text-white',
   imageClass: 'card-img-top',
   bodyClass: 'card-body',
   titleClass: 'card-title',
@@ -115,14 +108,42 @@ function fetchAndDisplayRandom() {
         play.style.borderRadius = '50%';
         cardImg.appendChild(play);
 
+        play.addEventListener('click', (event) => {
+          event.stopPropagation();
+
+          if (currentlyPlayingCard && currentlyPlayingCard !== play) {
+            currentlyPlayingCard.classList.remove('bi-pause-fill');
+            currentlyPlayingCard.classList.add('bi-play-fill');
+          }
+
+          if (!audioElement.paused && currentlyPlayingCard === play) {
+            audioElement.pause();
+            play.classList.remove('bi-pause-fill');
+            play.classList.add('bi-play-fill');
+          } else {
+            fetchSongs(album.id);
+            setTimeout(() => {
+              audioElement.play();
+              updatePlayButton(true);
+              play.classList.remove('bi-play-fill');
+              play.classList.add('bi-pause-fill');
+            }, 1000);
+            currentlyPlayingCard = play;
+          }
+        });
+
         cardDiv.appendChild(cardImg);
 
         cardDiv.addEventListener('mouseover', () => {
           play.classList.remove('d-none');
+          cardDiv.classList.remove('bg-transparent');
+          cardDiv.classList.add('bg-dark');
         });
 
         cardDiv.addEventListener('mouseout', () => {
           play.classList.add('d-none');
+          cardDiv.classList.remove('bg-dark');
+          cardDiv.classList.add('bg-transparent');
         });
 
         const cardBody = document.createElement('div');
@@ -130,7 +151,8 @@ function fetchAndDisplayRandom() {
 
         const titleElement = document.createElement('h6');
         titleElement.className = classConfig.titleClass;
-        titleElement.textContent = album.title;
+        titleElement.innerHTML = `<a href="album.html?id=${album.id}" class="text-white">${album.title}</a>`;
+        console.log(album);
         cardBody.appendChild(titleElement);
 
         cardDiv.appendChild(cardBody);
@@ -146,8 +168,7 @@ function fetchAndDisplayRandom() {
 }
 
 function fetchCardsMain() {
-  //FUNZIONE SCIANTAL
-  for (let i = 0; i < 13; i++) {
+  for (let i = 0; i < 10; i++) {
     fetchAndDisplayRandom();
   }
 }

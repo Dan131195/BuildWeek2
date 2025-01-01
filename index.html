@@ -44,8 +44,13 @@
             <p
               class="px-2 px-lg-0 m-0 mb-lg-2 d-flex flex-column flex-lg-row justify-content-center align-items-center"
             >
-              <i class="bi bi-collection p-1"></i>
-              <span>La tua Libreria</span>
+              <a
+                href="myLibrary.html"
+                class="px-2 px-lg-0 m-0 mb-lg-2 text-decoration-none text-white d-flex flex-column flex-lg-row justify-content-center align-items-center"
+              >
+                <i class="bi bi-collection px-1"></i>
+                <span>La tua Libreria</span>
+              </a>
             </p>
           </div>
           <div class="container d-none d-lg-block mt-2 hover">
@@ -55,7 +60,7 @@
               ></i>
               <span>Crea Playlist</span>
             </p>
-            <p class="mb-2">
+            <p class="mb-2 openCloseFav">
               <i
                 class="bi bi-heart-fill border-0 rounded-1 text-white p-1 me-2 favoritesSong"
               ></i>
@@ -67,7 +72,7 @@
             </p>
           </div>
         </nav>
-        <div id="savedPlaylistContainer">
+        <div id="savedPlaylistContainer" class="pe-0 d-none">
           <hr class="text-white m-0 mb-2 border-3" />
           <p>
             <svg
@@ -85,7 +90,7 @@
             </svg>
             Brani che ti Piacciono
           </p>
-          <ul id="savedPlaylistItems" class="mt-2 p-0 list-unstyled"></ul>
+          <ul id="savedPlaylistItems" class="mt-2 p-0"></ul>
         </div>
       </aside>
       <main id="wrapperCentral" class="col-12 col-lg-7 order-0 order-lg-1 mt-3">
@@ -404,7 +409,7 @@
           </div>
           <div
             id="fetchCards"
-            class="container-fluid row row-cols-3 row-cols-xl-4 row-cols-xxl-6 d-none d-lg-flex m-auto"
+            class="container-fluid row row-cols-3 row-cols-xl-4 row-cols-xxl-5 d-none d-lg-flex m-auto"
           ></div>
         </div>
       </main>
@@ -514,17 +519,47 @@
           <div class="row">
             <div class="col-3 d-flex justify-content-center align-items-center">
               <img
-                src="assets/imgs/main/image-12.jpg"
+                src="assets/imgs/main/image-3.jpg"
                 alt=""
                 class="img-fluid w-75 rounded-5"
               />
             </div>
             <div class="col-6 infos">
-              <h6>Pippo</h6>
-              <p>In camera • Topolino Top Songs</p>
-              <p><i class="bi bi-disc"></i> Ep.III</p>
+              <h6 class="friends">Walter Antonelli</h6>
+              <p>In camera • O'Ricuttaro Nnnammurato</p>
+              <p><i class="bi bi-disc"></i> Squallor</p>
             </div>
             <div class="col-3 infos mt-4 p-0">4 hours</div>
+          </div>
+          <div class="row">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+              <img
+                src="assets/imgs/main/image-1.jpg"
+                alt=""
+                class="img-fluid w-75 rounded-5"
+              />
+            </div>
+            <div class="col-6 infos mt-3">
+              <h6 class="friends">Rachele Barberis</h6>
+              <p>Nel chill • Coca Zero</p>
+              <p><i class="bi bi-disc"></i> PTN</p>
+            </div>
+            <div class="col-3 infos mt-4 p-0">1 hours</div>
+          </div>
+          <div class="row">
+            <div class="col-3 d-flex justify-content-center align-items-center">
+              <img
+                src="assets/imgs/main/image-7.jpg"
+                alt=""
+                class="img-fluid w-75 rounded-5"
+              />
+            </div>
+            <div class="col-6 infos mt-3">
+              <h6 class="friends">Giuseppe Pomo</h6>
+              <p>In camera • Heavy is the Crown</p>
+              <p><i class="bi bi-disc"></i> Linkin Park</p>
+            </div>
+            <div class="col-3 infos mt-4 p-0">35 mins</div>
           </div>
           <div class="row">
             <div class="col-3 d-flex justify-content-center align-items-center">
@@ -535,41 +570,41 @@
               />
             </div>
             <div class="col-6 infos mt-3">
-              <h6>Pippo</h6>
-              <p>In camera • Topolino Top Songs</p>
-              <p><i class="bi bi-disc"></i> Ep.III</p>
+              <h6 class="friends">Daniele Franceschini</h6>
+              <p>In camera • Bohemian Rhapsody</p>
+              <p><i class="bi bi-disc"></i> Queen</p>
             </div>
-            <div class="col-3 infos mt-4 p-0">4 hours</div>
+            <div class="col-3 infos mt-4 p-0">2 hours</div>
           </div>
           <div class="row">
             <div class="col-3 d-flex justify-content-center align-items-center">
               <img
-                src="assets/imgs/main/image-12.jpg"
+                src="assets/imgs/main/image-11.jpg"
                 alt=""
                 class="img-fluid w-75 rounded-5"
               />
             </div>
             <div class="col-6 infos mt-3">
-              <h6>Pippo</h6>
-              <p>In camera • Topolino Top Songs</p>
-              <p><i class="bi bi-disc"></i> Ep.III</p>
+              <h6 class="friends">Vittorio Turiaci</h6>
+              <p>In camera • Lady Writer</p>
+              <p><i class="bi bi-disc"></i> Dire Straits</p>
             </div>
-            <div class="col-3 infos mt-4 p-0">4 hours</div>
+            <div class="col-3 infos mt-4 p-0">2 hours</div>
           </div>
           <div class="row">
             <div class="col-3 d-flex justify-content-center align-items-center">
               <img
-                src="assets/imgs/main/image-12.jpg"
+                src="assets/imgs/main/image-17.jpg"
                 alt=""
                 class="img-fluid w-75 rounded-5"
               />
             </div>
             <div class="col-6 infos mt-3">
-              <h6>Pippo</h6>
-              <p>In camera • Topolino Top Songs</p>
-              <p><i class="bi bi-disc"></i> Ep.III</p>
+              <h6 class="friends">Klajdi Kollcaku</h6>
+              <p>In camera • Laura non c'è</p>
+              <p><i class="bi bi-disc"></i> Nek</p>
             </div>
-            <div class="col-3 infos mt-4 p-0">4 hours</div>
+            <div class="col-3 infos mt-4 p-0">2 hours</div>
           </div>
         </div>
       </aside>

@@ -7,7 +7,6 @@ let currentTrackIndex = 0;
 let idBase = 3068802251;
 const audioElement = new Audio();
 
-// Selezione degli elementi HTML
 const playPauseButton = document.querySelector('#playPause');
 const playPauseButton2 = document.querySelector('.play-pause');
 const nextButton = document.querySelector('.bi-skip-end-fill');
@@ -288,12 +287,10 @@ function updateSavedPlaylistUI() {
 
   savedPlaylist.forEach((track, index) => {
     const li = document.createElement('li');
-    li.style.listStyleType = 'none';
     li.className =
       'text-white mb-2 d-flex align-items-center justify-content-between';
 
     const trackInfo = document.createElement('span');
-    trackInfo.style.listStyleType = 'none';
     trackInfo.textContent = `• ${track.title} - ${track.artist.name}`;
     trackInfo.addEventListener('click', () => {
       const trackIndex = playlist.findIndex(

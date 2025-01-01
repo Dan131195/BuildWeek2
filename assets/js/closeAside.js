@@ -16,20 +16,12 @@ function closeAside() {
     wrapper.classList.add('col-lg-9');
     expandeCollapse.classList.remove('bi-arrows-angle-contract');
     expandeCollapse.classList.add('bi-arrows-angle-expand');
-    // const card = document.querySelectorAll('.card');
-    // card.forEach(element => {
-    //   element.style.height = '350px';
-    // });
   } else {
     asideFriends.classList.add('d-lg-block');
     wrapper.classList.add('col-lg-7');
     wrapper.classList.remove('col-lg-9');
     expandeCollapse.classList.remove('bi-arrows-angle-expand');
     expandeCollapse.classList.add('bi-arrows-angle-contract');
-    // const card = document.querySelectorAll('.card');
-    // card.forEach(element => {
-    //   element.style.height = '300px';
-    // });
   }
 }
 

@@ -9,6 +9,7 @@ const albumReleaseSm = document.getElementById('albumReleaseSm');
 const albumReleaseLg = document.getElementById('albumReleaseLg');
 const songsNum = document.getElementById('songsNum');
 const albumDuration = document.getElementById('albumDuration');
+const albumHeart = document.querySelector('.albumHeart');
 
 async function fetchAlbum(albumId) {
   try {
@@ -77,19 +78,18 @@ function renderSongs(songs) {
     title.style.margin = '0';
     title.classList.add('songTitleInAlbum');
     title.addEventListener('click', () => {
-      // Trova l'indice del brano nella playlist o lo aggiunge se non esiste
       const trackIndex = playlist.findIndex((track) => track.id === song.id);
       if (trackIndex === -1) {
-        playlist.push(song); // Aggiungi il brano alla playlist se non esiste
-        currentTrackIndex = playlist.length - 1; // Imposta l'indice attuale all'ultimo brano
+        playlist.push(song);
+        currentTrackIndex = playlist.length - 1;
       } else {
-        currentTrackIndex = trackIndex; // Imposta l'indice attuale al brano esistente
+        currentTrackIndex = trackIndex;
       }
 
-      // Carica e riproduci il brano
       loadTrack(currentTrackIndex);
       audioElement.play();
-      updatePlayButton(true); // Aggiorna l'icona del pulsante di riproduzione
+      updatePlayButton(true);
+      updateHeartIcon();
     });
 
     const artist = document.createElement('p');
@@ -142,9 +142,22 @@ function init() {
 const playAlbumButton = document.getElementById('playAlbum');
 
 playAlbumButton.addEventListener('click', () => {
+  if (!playlist || playlist.length === 0) {
+    console.error('Playlist non trovata o vuota!');
+    return;
+  }
+
+  playlist = [...albumTracks];
+  currentTrackIndex = 0;
+  renderSongs(playlist);
   loadTrack(currentTrackIndex);
   audioElement.play();
   updatePlayButton(true);
+  updateHeartIcon();
 });
 
 document.addEventListener('DOMContentLoaded', init);
+
+albumHeart.addEventListener('click', function () {
+  albumHeart.classList.toggle('text-success');
+});

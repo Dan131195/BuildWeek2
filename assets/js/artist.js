@@ -1,4 +1,3 @@
-// Utility functions
 const formatDuration = (seconds) => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = Math.floor(seconds % 60);
@@ -17,11 +16,9 @@ const generateRandomListeners = () => {
   };
 };
 
-// Constants
 const API_BASE_URL = 'https://striveschool-api.herokuapp.com/api/deezer';
 const MAX_TOP_SONGS = 6;
 
-// DOM Elements
 const elements = {
   topSongs: document.getElementById('topSongs'),
   artistCover: document.getElementById('artistCover'),
@@ -30,8 +27,6 @@ const elements = {
   playButton: document.getElementById('playButton'),
   artistImgRounded: document.getElementById('artistImgRounded'),
 };
-
-// Main functionality
 class ArtistPage {
   constructor() {
     this.artistId = new URLSearchParams(window.location.search).get('id');
@@ -51,7 +46,6 @@ class ArtistPage {
   setupEventListeners() {
     elements.playButton.addEventListener('click', () => {
       if (this.tracks.length > 0) {
-        // Se la playlist è vuota, carica le tracce dell'artista
         if (playlist.length === 0) {
           playlist = [...this.tracks];
         }
@@ -85,6 +79,8 @@ class ArtistPage {
     elements.artistName.textContent = artist.name;
     elements.monthly.innerHTML = `<span>${millions}</span>.<span>${thousands1}</span>.<span>${thousands2}</span>`;
     elements.artistImgRounded.src = artist.picture;
+    const artistSideName = document.getElementById('artistSideName');
+    artistSideName.textContent = artist.name;
   }
 
   async renderTopSongs(artist) {
@@ -105,7 +101,6 @@ class ArtistPage {
         .map((track, index) => this.createTrackHTML(track, index))
         .join('');
 
-      // Aggiunge event listeners per ogni traccia
       this.tracks.forEach((track, index) => {
         const trackElement = document.getElementById(`track-${index}`);
         if (trackElement) {
@@ -119,7 +114,6 @@ class ArtistPage {
         }
       });
 
-      // Carica la prima traccia nel player (senza riprodurla)
       loadTrack(0);
       updateHeartIcon();
     } catch (error) {
@@ -167,13 +161,11 @@ class ArtistPage {
   }
 }
 
-// Initialization
 document.addEventListener('DOMContentLoaded', () => {
   const artistPage = new ArtistPage();
   artistPage.init();
 });
 
-// Aggiungi listener per aggiornare lo stile della traccia corrente quando cambia
 audioElement.addEventListener('play', () => {
   const artistPage = window.artistPage;
   if (artistPage) {
